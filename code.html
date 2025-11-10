@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Friend, Raksha?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            color: #ff69b4;
+        }
+        .buttons {
+            margin-top: 30px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #no {
+            background-color: #f44336;
+            color: white;
+            position: relative;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #message h2 {
+            color: #4CAF50;
+        }
+        #message ul {
+            text-align: left;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Raksha, Will You Be My Friend? (Just Friends, Promise!)</h1>
+    <p>Click "Yes" to start our awesome friendship adventure. Or try "No"... if you can catch it! 😉</p>
+    
+    <div class="buttons">
+        <button id="yes">Yes!</button>
+        <button id="no">No</button>
+    </div>
+    
+    <div id="message">
+        <h2>From Today, We're Friends!</h2>
+        <p>I'm so excited to have you as a friend, Raksha! Let's create some amazing memories together.</p>
+        <ul>
+            <li><strong>Happy Moments:</strong> Sharing laughs over our favorite shows, exploring new places, and celebrating each other's wins.</li>
+            <li><strong>Fun Adventures:</strong> Trying out new hobbies, like baking together or going on spontaneous hikes.</li>
+            <li><strong>Support System:</strong> Being there for each other through ups and downs, with honest talks and endless encouragement.</li>
+            <li><strong>Inside Jokes:</strong> Building our own silly traditions that only we understand.</li>
+        </ul>
+        <p>You're awesome, and I'm grateful for this friendship. Let's make it unforgettable!</p>
+    </div>
+    
+    <script>
+        const noButton = document.getElementById('no');
+        const yesButton = document.getElementById('yes');
+        const message = document.getElementById('message');
+
+        // Function to move the "No" button randomly
+        function moveNoButton() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+            noButton.style.position = 'absolute';
+        }
+
+        // Move on hover
+        noButton.addEventListener('mouseover', moveNoButton);
+        
+        // Move on click (extra fun)
+        noButton.addEventListener('click', moveNoButton);
+
+        // Handle "Yes" click
+        yesButton.addEventListener('click', () => {
+            message.style.display = 'block';
+            noButton.style.display = 'none'; // Hide "No" after yes
+            yesButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
